@@ -1,0 +1,26 @@
+
+Q. A university has started a student-advisor plan which assigns a professor as an advisor to each student for academic guidance. 
+Write a query to find the roll number and names of students who either have a male advisor with a salary of more than 15,000 or a female advisor with a salary of more than 20,000. 
+There are two tables in the database: student_information and faculty_information. The primary key of student_information is roll_number whereas that of faculty_information is employee_ID.
+
+
+select std.roll_number, std.name 
+from student_information std, faculty_information fi 
+where std.advisor = fi.employee_id and (fi.gender = 'M' and fi.salary > 15000 or fi.gender = 'F' and fi.salary > 20000) 
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q. A stock is considered profitable if the predicted price is strictly greater than the current price. 
+Write a query to find the stock_codes of all the stocks which are profitable based on this definition. 
+Sort the output in ascending order.
+
+There are two tables in the database: price_today and price_tomorrow. Their primary keys are stock_﻿code.
+
+
+Select a.stock_code from price_today a
+Inner Join price_tomorrow b
+On a.stock_code = b.stock_code
+Where b.price > a.price ORDER BY stock_code asc;
